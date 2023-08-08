@@ -2,14 +2,14 @@ import { useState } from 'react'
 
 import './App.css'
 import { Table } from './components/table'
-import { Example } from './components/dragAndDrop/Example'
+import { Backlog } from './components/dragAndDrop/Backlog'
 
 function App() {
 
   return (
     <>
       <Table/>
-      <Example/>
+      <Backlog/>
     </>
   )
 }
