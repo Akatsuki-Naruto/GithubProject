@@ -109,28 +109,10 @@
       "Size": "Medium",
       "LinkedPullRequest": "nguyenb@gmail.com",
       "Labels": "Documentation"
-    },
-    {
-      "Title": "dsada",
-      "Assignees": "",
-      "Priority": "",
-      "Status": "",
-      "Size": "",
-      "LinkedPullRequest": "",
-      "Labels": "",
-      "id": 12
-    },
-    {
-      "Title": "adsda",
-      "Assignees": "",
-      "Priority": "",
-      "Status": "",
-      "Size": "",
-      "LinkedPullRequest": "",
-      "Labels": "",
-      "id": 13
     }
   ],
+
+
   "Status": [
     {
       "id": 1,

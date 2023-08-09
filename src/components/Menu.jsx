@@ -4,6 +4,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import { Backlog } from "./Backlog/Backlog";
 import { Table } from "./Table/Tables";
+import { BacklogTest } from "./ApiBacklog/Backlog";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -26,21 +27,11 @@ export function Menu() {
         id: 2,
       },
     ],
-    Trending: [
+    BoardTest: [
       {
         id: 1,
-        title: "Ask Me Anything: 10 answers to your questions about coffee",
-        date: "2d ago",
-        commentCount: 9,
-        shareCount: 5,
-      },
-      {
-        id: 2,
-        title: "The worst advice we've ever heard about coffee",
-        date: "4d ago",
-        commentCount: 1,
-        shareCount: 2,
-      },
+        content:<BacklogTest/>
+      }
     ],
   });
 
