@@ -14,6 +14,10 @@ export function DragCard() {
     { id: 2, name: "b" },
     { id: 3, name: "c" },
     { id: 4, name: "d" },
+    { id: 5, name: "e" },
+    { id: 6, name: "f" },
+    { id: 7, name: "g" },
+    { id: 8, name: "h" },
   ]);
 
   const handleDragEnd = (event) => {
@@ -36,8 +40,8 @@ export function DragCard() {
 
   return (
     <>
-      <div className={clsx(" relative")}>
-        <div className={clsx("flex flex-col")}>
+      <div className={clsx(" relative flex h-[400px]")}>
+        <div className={clsx("flex flex-col max-w-[270px] overflow-x-hidden scrollbar-hide")}>
           <DndContext
             collisionDetection={closestCenter}
             onDragEnd={handleDragEnd}

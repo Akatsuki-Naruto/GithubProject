@@ -52,8 +52,10 @@ export function Backlog() {
               {status.map((user) => (
                 <Status key={user.id} user={user} />
               ))}
+              
             </SortableContext>
           </DndContext>
+          
         </div>
       </div>
     </>

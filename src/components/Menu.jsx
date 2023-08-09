@@ -2,43 +2,28 @@ import React from "react";
 import { Tab } from "@headlessui/react";
 import { useState } from "react";
 import clsx from "clsx";
+import { Backlog } from "./Backlog/Backlog";
+import { Table } from "./Table/Tables";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function Table() {
+export function Menu() {
   let [categories] = useState({
-    Recent: [
+    Board: [
       {
         id: 1,
-        title: "Does drinking coffee make you smarter?",
-        date: "5h ago",
-        commentCount: 5,
-        shareCount: 2,
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: "2h ago",
-        commentCount: 3,
-        shareCount: 2,
+        content:<Backlog/>
       },
     ],
-    Popular: [
+    Table: [
       {
         id: 1,
-        title: "Is tech making coffee better or worse?",
-        date: "Jan 7",
-        commentCount: 29,
-        shareCount: 16,
+        content:<Table/>
       },
       {
         id: 2,
-        title: "The most innovative things happening in coffee",
-        date: "Mar 19",
-        commentCount: 24,
-        shareCount: 12,
       },
     ],
     Trending: [
@@ -79,7 +64,7 @@ export function Table() {
                   selected
                     ? clsx("bg-white shadow")
                     : clsx(
-                        "text-blue-100 hover:bg-white/[0.12] hover:text-white"
+                        "text-blue-100 hover:bg-white/[0.12] hover:text-black"
                       )
                 )
               }
@@ -95,7 +80,7 @@ export function Table() {
               className={classNames(
                 clsx("rounded-xl bg-white p-3 text-black"),
                 clsx(
-                  "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+                  "ring-white ring-opacity-60 ring-offset-2 focus:outline-none focus:ring-2"
                 )
               )}
             >
@@ -107,31 +92,10 @@ export function Table() {
                       "relative rounded-md p-3 hover:bg-gray-100"
                     )}
                   >
-                    <h3 className={clsx("text-sm font-medium leading-5")}>
-                      {post.title}
-                    </h3>
+                    <div className={clsx("relative z-10")}>
+                      {post.content}
+                    </div>
 
-                    <ul
-                      className={clsx(
-                        "mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"
-                      )}
-                    >
-                      <li>{post.date}</li>
-                      <li>&middot;</li>
-                      <li>{post.commentCount} comments</li>
-                      <li>&middot;</li>
-                      <li>{post.shareCount} shares</li>
-                    </ul>
-
-                    <a
-                      href="#"
-                      className={classNames(
-                        clsx("absolute inset-0 rounded-md"),
-                        clsx(
-                          "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                        )
-                      )}
-                    />
                   </li>
                 ))}
               </ul>

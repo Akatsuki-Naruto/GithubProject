@@ -19,7 +19,7 @@ function Card({ user }) {
       {...attributes}
       {...listeners}
       className={clsx(
-        "bg-primary-2 mr-4 p-4 rounded-md shadow-md my-2 text-white w-[270px] flex justify-between hover:opacity-50"
+        "bg-primary-2 mr-4 p-4 rounded-md shadow-md my-[2px] text-white w-[265px] flex justify-between hover:opacity-50"
       )}
     >
       <h1>{user.name}</h1>
