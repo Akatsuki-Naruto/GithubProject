@@ -10,12 +10,12 @@ import clsx from "clsx";
 
 export function BacklogTest() {
   const [status, setStatus] = useState([
-    { id: 1, name: "🆕 New" },
-    { id: 2, name: "📋 Backlog" },
-    { id: 3, name: "🔖 Ready" },
-    { id: 4, name: "🏗 In Progress" },
-    { id: 5, name: "👀 In review" },
-    { id: 6, name: "✅ Done" },
+    { id: 100, name: "🆕 New" , infor:'New'},
+    { id: 200, name: "📋 Backlog",infor:'Backlog' },
+    { id: 300, name: "🔖 Ready" ,infor:'Ready'},
+    { id: 400, name: "🏗 In Progress" , infor:'In Progress'},
+    { id: 500, name: "👀 In review",infor:'In Review'},
+    { id: 600, name: "✅ Done" ,infor:'Done'},
   ]);
 
   const handleDragEnd = (event) => {
@@ -38,7 +38,7 @@ export function BacklogTest() {
 
   return (
     <>
-      <div className={clsx("flex justify-start items-center px-8")}>
+      <div className={clsx("flex justify-start items-center px-8 overflow-x-hidden")}>
         <div className={clsx("flex flex-row")}>
           <DndContext
             collisionDetection={closestCenter}

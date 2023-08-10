@@ -3,7 +3,7 @@ import { CSS } from "@dnd-kit/utilities";
 import clsx from "clsx";
 import { MoreOptions } from "../../assets/svg";
 import { useState } from "react";
-import { DragCard } from "./DragCard";
+import { CallApiBoard } from "../../Api/callApiStatus";
 
 function Status({ user }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
@@ -31,7 +31,7 @@ function Status({ user }) {
             <MoreOptions />
           </div>
 
-          <DragCard />
+          <CallApiBoard />
         </div>
 
         <input

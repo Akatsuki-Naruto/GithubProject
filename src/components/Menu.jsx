@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { Backlog } from "./Backlog/Backlog";
 import { Table } from "./Table/Tables";
 import { BacklogTest } from "./ApiBacklog/Backlog";
+import Search from "./search";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,13 +16,13 @@ export function Menu() {
     Board: [
       {
         id: 1,
-        content:<Backlog/>
+        content: <Backlog />,
       },
     ],
     Table: [
       {
         id: 1,
-        content:<Table/>
+        content: <Table />,
       },
       {
         id: 2,
@@ -30,8 +31,8 @@ export function Menu() {
     BoardTest: [
       {
         id: 1,
-        content:<BacklogTest/>
-      }
+        content: <BacklogTest />,
+      },
     ],
   });
 
@@ -39,7 +40,9 @@ export function Menu() {
     <div className={clsx("w-full max-w-md px-2 py-16 sm:px-0 relative")}>
       <Tab.Group>
         <Tab.List
-          className={clsx("flex space-x-1 rounded-xl bg-blue-900/20 p-1")}
+          className={clsx(
+            "flex space-x-1 rounded-t-md bg-primary-1 fixed top-11 left-4 w-80 h-9"
+          )}
         >
           {Object.keys(categories).map((category) => (
             <Tab
@@ -47,16 +50,14 @@ export function Menu() {
               className={({ selected }) =>
                 classNames(
                   clsx(
-                    "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700"
+                    "w-full rounded-t-md pt-2.5 text-sm font-normal leading-5 text-primary-9 "
                   ),
                   clsx(
-                    "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+                    "focus:outline-none"
                   ),
                   selected
-                    ? clsx("bg-white shadow")
-                    : clsx(
-                        "text-blue-100 hover:bg-white/[0.12] hover:text-black"
-                      )
+                    ? clsx("bg-primary-3 shadow  border-t-[1px] border-t-primary-9  border-r-[1px] border-r-primary-9 border-l-[1px] border-l-primary-9 ")
+                    : clsx("text-blue-100 hover:text-white")
                 )
               }
             >
@@ -64,35 +65,35 @@ export function Menu() {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="mt-2">
-          {Object.values(categories).map((posts, idx) => (
-            <Tab.Panel
-              key={idx}
-              className={classNames(
-                clsx("rounded-xl bg-white p-3 text-black"),
-                clsx(
-                  "ring-white ring-opacity-60 ring-offset-2 focus:outline-none focus:ring-2"
-                )
-              )}
-            >
-              <ul>
-                {posts.map((post) => (
-                  <li
-                    key={post.id}
-                    className={clsx(
-                      "relative rounded-md p-3 hover:bg-gray-100"
-                    )}
-                  >
-                    <div className={clsx("relative z-10")}>
-                      {post.content}
-                    </div>
-
-                  </li>
-                ))}
-              </ul>
-            </Tab.Panel>
-          ))}
-        </Tab.Panels>
+        <Search />
+        <div className={clsx("")}>
+          <Tab.Panels className="mt-2 fixed top-32 left-0 right-0 bottom-0 overflow-scroll bg-primary-3 ">
+            {Object.values(categories).map((posts, idx) => (
+              <Tab.Panel
+                key={idx}
+                className={classNames(
+                  clsx("rounded-xl bg-primary-3 text-black"),
+                  clsx(
+                    "focus:outline-none"
+                  )
+                )}
+              >
+                <ul className={clsx("focus:border-primary-3")}>
+                  {posts.map((post) => (
+                    <li
+                      key={post.id}
+                      className={clsx("relative rounded-md pt-3")}
+                    >
+                      <div className={clsx("relative z-10")}>
+                        {post.content}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </Tab.Panel>
+            ))}
+          </Tab.Panels>
+        </div>
       </Tab.Group>
     </div>
   );

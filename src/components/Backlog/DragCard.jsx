@@ -41,7 +41,7 @@ export function DragCard() {
   return (
     <>
       <div className={clsx(" relative flex h-[400px]")}>
-        <div className={clsx("flex flex-col max-w-[270px] overflow-x-hidden scrollbar-hide")}>
+        <div className={clsx("flex flex-col max-w-[340px] overflow-x-hidden scrollbar-hide")}>
           <DndContext
             collisionDetection={closestCenter}
             onDragEnd={handleDragEnd}

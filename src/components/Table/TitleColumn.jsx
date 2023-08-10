@@ -12,7 +12,7 @@ function TitleColumn({ user }) {
       <div
         ref={setNodeRef}
         className={clsx(
-          `bg-primary-1 p-4 h-[50px] shadow-md  text-white ${user.width} border-r-white border-r-[1px] focus:z-20 ${user.padding}`
+          `bg-primary-3 p-[6px] h-[35px] shadow-md  text-white ${user.width} border-r-primary-4 border-r-[1px] focus:z-20 ${user.padding}`
         )}
       >
         <div className={clsx("flex justify-between")}>

@@ -131,116 +131,150 @@
       "id": 13
     }
   ],
-  "Status": [
+  "Information": [
     {
       "id": 1,
-      "Title": "a",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "New",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "100"
     },
     {
       "id": 2,
-      "Title": "b",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "Backlog",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00003",
+      "valueTitle": "b",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "200"
     },
     {
       "id": 3,
-      "Title": "c",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "Ready",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00004",
+      "valueTitle": "c",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "300"
     },
     {
       "id": 4,
-      "Title": "d",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "In Progress",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "400"
     },
     {
       "id": 5,
-      "Title": "e",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "In Review",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "500"
     },
     {
       "id": 6,
-      "Title": "f",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "Done",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "600"
     },
     {
       "id": 7,
-      "Title": "12",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "New",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "100"
     },
     {
       "id": 8,
-      "Title": "13",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "Backlog",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "200"
     },
     {
       "id": 9,
-      "Title": "15",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "Ready",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "300"
     },
     {
       "id": 10,
-      "Title": "16",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "In Progress",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "400"
     },
     {
       "id": 11,
-      "Title": "17",
-      "Assignees": "Akatsuki-Naruto",
-      "Priority": "Urgent ",
-      "Status": "In Review",
-      "Size": "Medium",
-      "LinkedPullRequest": "nguyenb@gmail.com",
-      "Labels": "Documentation"
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "500"
+    },
+    {
+      "id": 12,
+      "Priority": "00002",
+      "valueTitle": "a",
+      "valueAssignees": [
+        {
+          "login": "Akatsuki",
+          "url": "https://github.com/Akatsuki-Naruto"
+        }
+      ],
+      "idStatus": "600"
     }
   ]
 }

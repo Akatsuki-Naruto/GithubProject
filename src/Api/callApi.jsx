@@ -10,6 +10,8 @@ import {
 import { DndContext, closestCenter } from "@dnd-kit/core";
 
 export function CallApi() {
+  const [alert,setAlert] = useState(false);
+  const [itemInput, setItemInput] = useState('')
   const [elements, setElements] = useState([]);
   const [Title, setTitle] = useState("");
   const [Assignees, setAssignees] = useState("");
@@ -78,12 +80,20 @@ export function CallApi() {
       Size,
       LinkedPullRequest,
       Labels
-      );
+      )
+      .then(()=>{
+        setItemInput('');
+        setAlert(true);
+      });
     };
-    
-    useEffect(()=>{
-      
-    });
+
+    useEffect(() => {
+        if(alert) {
+          setTimeout(() => {
+            setAlert(false);
+          }, 1000);
+        }
+    },[alert])
 
   const deleteElements = async (id) => {
     await api.delete(`${id}`);
@@ -133,6 +143,7 @@ export function CallApi() {
           </form>
           </SortableContext>
         </DndContext>
+        {alert && <h3>Updated API</h3>}
       </div>
     </>
   );

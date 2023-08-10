@@ -22,7 +22,7 @@ function Card({ user }) {
         "bg-primary-2 mr-4 p-4 rounded-md shadow-md my-[2px] text-white w-[265px] flex justify-between hover:opacity-50"
       )}
     >
-      <h1>{user.name}</h1>
+      <h1>{user.valueTitle}</h1>
     </div>
   );
 }

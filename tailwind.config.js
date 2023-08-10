@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin')
+const plugin = require("tailwindcss/plugin");
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -14,28 +14,33 @@ export default {
           1: "#010409",
           2: "#161b22",
           3: "#21262d",
+          4: "#30363d",
+          5: "#58a6ff",
+          6: "#30363d",
+          7: "#f0f6fc1a",
+          8:"#21262d",
+          9:"#8b949e"
         },
       },
     },
   },
   plugins: [
-    require('tailwind-scrollbar-hide'),
+    require("tailwind-scrollbar-hide"),
     plugin(function ({ addUtilities }) {
       addUtilities({
-        '.scrollbar-hide': {
+        ".scrollbar-hide": {
           /* IE and Edge */
-          '-ms-overflow-style': 'none',
+          "-ms-overflow-style": "none",
 
           /* Firefox */
-          'scrollbar-width': 'none',
+          "scrollbar-width": "none",
 
           /* Safari and Chrome */
-          '&::-webkit-scrollbar': {
-            display: 'none'
-          }
-        }
-      }
-      )
-    })
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      });
+    }),
   ],
 };

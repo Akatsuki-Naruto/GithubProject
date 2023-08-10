@@ -7,5 +7,5 @@ export const api = axios.create({
 
 export const sta = axios.create({
   baseURL:
-  "http://localhost:3000/Status"
+  "http://localhost:3000/Information"
 });

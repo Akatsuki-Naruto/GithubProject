@@ -23,7 +23,7 @@ function Status({ user }) {
           {...attributes}
           {...listeners}
           className={clsx(
-            "bg-primary-1 mr-2 p-4 rounded-md h-[450px] shadow-md my-2 text-white w-[300px] focus:z-20"
+            "bg-primary-1 mr-2 p-4 rounded-md h-[450px] shadow-md my-2 text-white w-[350px] focus:z-20"
           )}
         >
           <div className={clsx("flex justify-between")}>

@@ -8,8 +8,9 @@ import {
   arrayMove,
 } from "@dnd-kit/sortable";
 import { DndContext, closestCenter } from "@dnd-kit/core";
+import Card from "../components/ApiBacklog/Card";
 
-export function CallApi() {
+export function CallApiBoard() {
   const [element, setElement] = useState([]);
   const [title, setTitle] = useState("");
   const [assignees, setAssignees] = useState("");
@@ -37,6 +38,11 @@ export function CallApi() {
 
         return arrayMove(element, oldIndex, newIndex);
       });
+    }
+    if (element.idStatus === status.id) {
+      return element;
+    } else {
+      undefined;
     }
   };
 
@@ -92,32 +98,35 @@ export function CallApi() {
 
   return (
     <>
-      <div>
-        <DndContext
-          collisionDetection={closestCenter}
-          onDragEnd={handleDragEnd}
+      <div className={clsx(" relative flex h-[400px]")}>
+        <div
+          className={clsx(
+            "flex flex-col max-w-[270px] overflow-x-hidden scrollbar-hide"
+          )}
         >
-          {/* <h1 className={clsx("text-2xl font-bold")}>Backlog</h1> */}
-          <SortableContext
-            items={element}
-            strategy={verticalListSortingStrategy}
+          <DndContext
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
           >
-            {element.map((user) => (
-              <Element
-                key={user.id}
-                user={user}
-                title={user.title}
-                assignees={user.assignees}
-                priority={user.priority}
-                status={user.status}
-                size={user.size}
-                linkedPullRequest={user.linkedPullRequest}
-                labels={user.labels}
-                deleteElements={deleteElements}
-              />
-            ))}
-            <form onSubmit={handleSubmit}>
-              {/* <div className={clsx("sticky bottom-0 left-5 right-5")}> */}
+            <SortableContext
+              items={element}
+              strategy={verticalListSortingStrategy}
+            >
+              {element.map((user) => (
+                <Card
+                  key={user.id}
+                  user={user}
+                  Title={user.valueTitle}
+                  // assignees={user.infor.value.login}
+                  // priority={user.priority}
+                  // status={user.infor.value.id}
+                  // size={user.size}
+                  // linkedPullRequest={user.linkedPullRequest}
+                  // labels={user.labels}
+                  // deleteElements={deleteElements}
+                />
+              ))}
+              {/* <form onSubmit={handleSubmit}>
               <input
                 className={clsx(
                   "pl-4 border-[1px] bg-primary-3 text-white border-black w-full h-12 focus:border-blue-700 focus:border-[1px] sticky bottom-0 left-5 right-5"
@@ -127,10 +136,10 @@ export function CallApi() {
                 placeholder="Add an Item..."
                 onChange={(e) => setTitle(e.target.value)}
               />
-              {/* </div> */}
-            </form>
-          </SortableContext>
-        </DndContext>
+            </form> */}
+            </SortableContext>
+          </DndContext>
+        </div>
       </div>
     </>
   );
