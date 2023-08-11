@@ -6,6 +6,10 @@ import { Backlog } from "./Backlog/Backlog";
 import { Table } from "./Table/Tables";
 import { BacklogTest } from "./ApiBacklog/Backlog";
 import Search from "./search";
+import Dropdown from "./dropdown";
+import MyModal from "./dialog(Model)";
+import Switches from "./switch(Toggle)";
+import { DropDown } from "../assets/svg";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -34,6 +38,24 @@ export function Menu() {
         content: <BacklogTest />,
       },
     ],
+    Drop_Down: [
+      {
+        id: 1,
+        content: <Dropdown />,
+      },
+    ],
+    Dialog: [
+      {
+        id: 1,
+        content: <MyModal />,
+      },
+    ],
+    Switch: [
+      {
+        id: 1,
+        content: <Switches />,
+      },
+    ],
   });
 
   return (
@@ -50,18 +72,19 @@ export function Menu() {
               className={({ selected }) =>
                 classNames(
                   clsx(
-                    "w-full rounded-t-md pt-2.5 text-sm font-normal leading-5 text-primary-9 "
+                    " w-full rounded-t-md px-3 text-sm font-normal leading-5 text-primary-9 "
                   ),
-                  clsx(
-                    "focus:outline-none"
-                  ),
+                  clsx("focus:outline-none"),
                   selected
-                    ? clsx("bg-primary-3 shadow  border-t-[1px] border-t-primary-9  border-r-[1px] border-r-primary-9 border-l-[1px] border-l-primary-9 ")
+                    ? clsx(
+                        "bg-primary-3 shadow  border-t-[1px] border-t-primary-9  border-r-[1px] border-r-primary-9 border-l-[1px] border-l-primary-9 "
+                      )
                     : clsx("text-blue-100 hover:text-white")
                 )
               }
             >
               {category}
+              {/* <Dropdown/> */}
             </Tab>
           ))}
         </Tab.List>
@@ -73,9 +96,7 @@ export function Menu() {
                 key={idx}
                 className={classNames(
                   clsx("rounded-xl bg-primary-3 text-black"),
-                  clsx(
-                    "focus:outline-none"
-                  )
+                  clsx("focus:outline-none")
                 )}
               >
                 <ul className={clsx("focus:border-primary-3")}>

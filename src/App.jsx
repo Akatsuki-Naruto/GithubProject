@@ -1,16 +1,17 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.css'
-import { Menu } from './components/Menu'
-import Example from './components/dropdown'
+import "./App.css";
+import { Menu } from "./components/Menu";
+import Example from "./components/dropdown";
+import { Header } from "./components/Header/Header";
 
 function App() {
-
   return (
     <>
-      <Menu/>
+      <Header />
+      <Menu />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

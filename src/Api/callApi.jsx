@@ -10,8 +10,8 @@ import {
 import { DndContext, closestCenter } from "@dnd-kit/core";
 
 export function CallApi() {
-  const [alert,setAlert] = useState(false);
-  const [itemInput, setItemInput] = useState('')
+  const [alert, setAlert] = useState(false);
+  const [itemInput, setItemInput] = useState("");
   const [elements, setElements] = useState([]);
   const [Title, setTitle] = useState("");
   const [Assignees, setAssignees] = useState("");
@@ -20,6 +20,13 @@ export function CallApi() {
   const [Size, setSize] = useState("");
   const [LinkedPullRequest, setLinkedPullRequest] = useState("");
   const [Labels, setLabels] = useState("");
+  const [isActive, setIsActive] = useState(true);
+  const row = clsx(
+    "pl-4 border-[1px] bg-primary-3 text-white border-black left-0 right-0 absolute h-12 focus:border-blue-700 focus:border-[1px] "
+  );
+  const elem = clsx(
+    "fixed bottom-[18px] left-3 right-[18px] pl-4 border-[1px] bg-primary-6 rounded-md text-white border-primary-9 h-12 focus:border-blue-700 focus:border-[1px] z-30"
+  );
 
   useEffect(() => {
     const fetchElement = async () => {
@@ -39,6 +46,7 @@ export function CallApi() {
 
         return arrayMove(elements, oldIndex, newIndex);
       });
+      // window.onresize()
     }
   };
 
@@ -69,7 +77,7 @@ export function CallApi() {
     setStatus("");
     setTitle("");
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addElements(
@@ -80,20 +88,19 @@ export function CallApi() {
       Size,
       LinkedPullRequest,
       Labels
-      )
-      .then(()=>{
-        setItemInput('');
-        setAlert(true);
-      });
-    };
+    ).then(() => {
+      setItemInput("");
+      setAlert(true);
+    });
+  };
 
-    useEffect(() => {
-        if(alert) {
-          setTimeout(() => {
-            setAlert(false);
-          }, 1000);
-        }
-    },[alert])
+  useEffect(() => {
+    if (alert) {
+      setTimeout(() => {
+        setAlert(false);
+      }, 1000);
+    }
+  }, [alert]);
 
   const deleteElements = async (id) => {
     await api.delete(`${id}`);
@@ -103,6 +110,18 @@ export function CallApi() {
       })
     );
   };
+
+  useEffect(() => {
+    // window.addEventListener("resize", () => {
+      const form = document.querySelector("form");
+      const rect = form.getBoundingClientRect();
+      if (rect.top >= window.innerHeight) {
+        setIsActive(false);
+      } else {
+        setIsActive(true);
+      }
+    // });
+  });
 
   return (
     <>
@@ -130,20 +149,25 @@ export function CallApi() {
                 deleteElements={deleteElements}
               />
             ))}
-          <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
               {/* <div className={clsx("sticky bottom-0 left-5 right-5")}> */}
-                <input
-                  className={clsx("pl-4 border-[1px] bg-primary-3 text-white border-black w-full h-12 focus:border-blue-700 focus:border-[1px] sticky bottom-0 left-5 right-5")}
-                  type="text"
-                  value={Title}
-                  placeholder="Add an Item..."
-                  onChange={(e) => setTitle(e.target.value)}
-                />
+              <input
+                className={isActive ? row : elem}
+                type="text"
+                value={Title}
+                placeholder="Add an Item..."
+                onChange={(e) => setTitle(e.target.value)}
+              />
               {/* </div> */}
-          </form>
+            </form>
+            <div
+              className={clsx(
+                "bg-primary-3 mr-4 border-t-[2px] border-t-primary-4 border-b-[1px] border-b-primary-4 text-white focus:z-20"
+              )}
+            ></div>
           </SortableContext>
         </DndContext>
-        {alert && <h3>Updated API</h3>}
+        {/* {alert && <h3>Updated API</h3>} */}
       </div>
     </>
   );

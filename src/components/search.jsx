@@ -30,9 +30,9 @@ export default function Search() {
     <div className={clsx("fixed left-0 py-3 top-20 right-0 focus:z-20 bg-primary-3 flex flex-row h-14  border-t-[1px] border-t-primary-9")}>
       <Combobox value={selected} onChange={setSelected}>
         <div className={clsx("absolute right-[144px] left-1 mt-1 ")}>
-          <div className={clsx("relative w-full overflow-hidden rounded-lg bg-primary-3 text-left shadow-md sm:text-sm")}>
+          <div className={clsx("relative w-full overflow-hidden rounded-lg bg-primary-3 text-left sm:text-sm")}>
             <Combobox.Input
-              className={clsx("w-full border-primary-9 border-[1px] rounded-lg py-2 pl-3 pr-10 text-sm  text-white focus:border-[1px] focus:border-blue-500 bg-primary-3")}
+              className={clsx("w-full border-primary-9 border-[1px] rounded-lg py-2 pl-3 pr-10 text-sm  text-white focus:border-blue-500 focus:border-[1px] bg-primary-3")}
               displayValue={(person) => person.name}
               onChange={(event) => setQuery(event.target.value)}
             />
@@ -50,7 +50,7 @@ export default function Search() {
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <Combobox.Options className={clsx("absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-primary-3 py-1 text-base shadow-lg focus:outline-none sm:text-sm")}>
+            <Combobox.Options className={clsx("absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-primary-3 py-1 text-base focus:outline-none sm:text-sm")}>
               {filteredPeople.length === 0 && query !== "" ? (
                 <div className={clsx("relative cursor-default select-none py-2 px-4 text-white")}>
                   Nothing found.
