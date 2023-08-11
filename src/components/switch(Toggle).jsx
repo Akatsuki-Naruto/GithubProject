@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 
-export default function Example() {
+export default function Switches() {
   const [enabled, setEnabled] = useState(false);
 
   return (

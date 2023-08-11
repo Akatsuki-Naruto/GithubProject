@@ -32,6 +32,11 @@ export function Table() {
           <div className={clsx("flex flex-col")}>
             <CallApi />
           </div>
+          <div
+              className={clsx(
+                "bg-primary-3 mr-4 h-12 rounded-md shadow-md border-t-[2px] border-t-primary-4 border-b-[1px] border-b-primary-4 text-white focus:z-20"
+              )}
+            ></div>
         </div>
       </div>
     </>

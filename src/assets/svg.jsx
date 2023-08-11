@@ -8,7 +8,7 @@ export const NavigateToInsight = () => (
     viewBox="0 0 16 16"
     width="16"
     height="16"
-    fill="currentColor"
+    fill="#fff"
     // style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible;"
   >
     <path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path>
@@ -23,7 +23,7 @@ export const DescriptionPanel = () => (
     viewBox="0 0 16 16"
     width="16"
     height="16"
-    fill="currentColor"
+    fill="#fff"
     // style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible;"
   >
     <path d="m4.177 7.823 2.396-2.396A.25.25 0 0 1 7 5.604v4.792a.25.25 0 0 1-.427.177L4.177 8.177a.25.25 0 0 1 0-.354Z"></path>
@@ -77,5 +77,20 @@ export const Garbage = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
+  </svg>
+);
+
+export const DropDown = () => (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    role="img"
+    class="octicon octicon-triangle-down"
+    viewBox="0 0 16 16"
+    width="16px"
+    height="16px"
+    fill="#fff"
+  >
+    <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path>
   </svg>
 );
