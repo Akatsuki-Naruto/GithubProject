@@ -8,9 +8,9 @@ import {
   arrayMove,
 } from "@dnd-kit/sortable";
 import { DndContext, closestCenter } from "@dnd-kit/core";
-import Card from "../components/ApiBacklog/Card";
+import Card from "../components/Backlog/Card";
 
-export function CallApiBoard() {
+export function CallApiBoard(user) {
   const [element, setElement] = useState([]);
   const [title, setTitle] = useState("");
   const [assignees, setAssignees] = useState("");
@@ -22,7 +22,7 @@ export function CallApiBoard() {
 
   useEffect(() => {
     const fetchElement = async () => {
-      const response = await sta.get("");
+      const response = await api.get(`?Status=${user.status}`);
       setElement(response.data);
     };
     fetchElement();
@@ -46,62 +46,12 @@ export function CallApiBoard() {
     }
   };
 
-  const addElement = async (
-    title,
-    assignees,
-    priority,
-    status,
-    size,
-    linkedPullRequest,
-    labels
-  ) => {
-    const response = await api.post("", {
-      title: title,
-      assignees: assignees,
-      priority: priority,
-      status: status,
-      size: size,
-      linkedPullRequest: linkedPullRequest,
-      labels: labels,
-    });
-    setElement([response.data, ...element]);
-    setAssignees("");
-    setLabels("");
-    setLinkedPullRequest("");
-    setPriority("");
-    setSize("");
-    setStatus("");
-    setTitle("");
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addElement(
-      title,
-      assignees,
-      priority,
-      status,
-      size,
-      linkedPullRequest,
-      labels
-    );
-  };
-
-  const deleteElements = async (id) => {
-    await api.delete(`${id}`);
-    setElement(
-      element.filter((Element) => {
-        return Element.id !== id;
-      })
-    );
-  };
-
   return (
     <>
-      <div className={clsx(" relative flex h-[400px]")}>
+      <div className={clsx(" relative flex h-[400px] overflow-x-hidden")}>
         <div
           className={clsx(
-            "flex flex-col max-w-[270px] overflow-x-hidden scrollbar-hide"
+            "flex flex-col overflow-x-clip"
           )}
         >
           <DndContext
@@ -116,7 +66,7 @@ export function CallApiBoard() {
                 <Card
                   key={user.id}
                   user={user}
-                  Title={user.valueTitle}
+                  Title={user.Title}
                   // assignees={user.infor.value.login}
                   // priority={user.priority}
                   // status={user.infor.value.id}
@@ -126,17 +76,6 @@ export function CallApiBoard() {
                   // deleteElements={deleteElements}
                 />
               ))}
-              {/* <form onSubmit={handleSubmit}>
-              <input
-                className={clsx(
-                  "pl-4 border-[1px] bg-primary-3 text-white border-black w-full h-12 focus:border-blue-700 focus:border-[1px] sticky bottom-0 left-5 right-5"
-                )}
-                type="text"
-                value={title}
-                placeholder="Add an Item..."
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </form> */}
             </SortableContext>
           </DndContext>
         </div>

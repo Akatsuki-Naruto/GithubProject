@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { api } from "./api";
-import Element from "../components/Table/Element";
+
+
 import clsx from "clsx";
 import {
   SortableContext,
@@ -8,21 +8,21 @@ import {
   arrayMove,
 } from "@dnd-kit/sortable";
 import { DndContext, closestCenter } from "@dnd-kit/core";
+import { api } from "../api";
+import Element from "../../components/Table/Element";
 
-export function CallApi() {
-  const [alert, setAlert] = useState(false);
-  const [itemInput, setItemInput] = useState("");
+export function CallMedium() {
   const [elements, setElements] = useState([]);
   const [Title, setTitle] = useState("");
   const [Assignees, setAssignees] = useState("");
   const [Priority, setPriority] = useState("");
   const [Status, setStatus] = useState("");
-  const [Size, setSize] = useState("");
+  const [Size, setSize] = useState("Medium");
   const [LinkedPullRequest, setLinkedPullRequest] = useState("");
   const [Labels, setLabels] = useState("");
   const [isActive, setIsActive] = useState(true);
   const row = clsx(
-    "pl-4 border-[1px] bg-primary-3 text-white border-black left-0 right-1 bottom-0 absolute h-12 focus:border-blue-700 focus:border-[1px] z-[50]"
+    "pl-4 border-[1px] bg-primary-3 text-white border-black left-0 right-0 absolute h-12 focus:border-blue-700 focus:border-[1px] "
   );
   const elem = clsx(
     "fixed bottom-[18px] left-3 right-[18px] pl-4 border-[1px] bg-primary-6 rounded-md text-white border-primary-9 h-12 focus:border-blue-700 focus:border-[1px] z-30"
@@ -30,7 +30,7 @@ export function CallApi() {
 
   useEffect(() => {
     const fetchElement = async () => {
-      const response = await api.get("");
+      const response = await api.get(`?Size=Medium`);
       setElements(response.data);
     };
     fetchElement();
@@ -88,19 +88,8 @@ export function CallApi() {
       Size,
       LinkedPullRequest,
       Labels
-    ).then(() => {
-      setItemInput("");
-      setAlert(true);
-    });
+    )
   };
-
-  useEffect(() => {
-    if (alert) {
-      setTimeout(() => {
-        setAlert(false);
-      }, 1000);
-    }
-  }, [alert]);
 
   const deleteElements = async (id) => {
     await api.delete(`${id}`);
@@ -112,15 +101,13 @@ export function CallApi() {
   };
 
   useEffect(() => {
-    // window.addEventListener("scroll", () => {
-      const form = document.querySelector("form");
-      const rect = form.getBoundingClientRect();
-      if (rect.top >= window.innerHeight) {
-        setIsActive(false);
-      } else {
-        setIsActive(true);
-      }
-    // });
+    const form = document.querySelector("form");
+    const rect = form.getBoundingClientRect();
+    if (rect.top >= window.innerHeight) {
+      setIsActive(false);
+    } else {
+      setIsActive(true);
+    }
   });
 
   return (
@@ -134,6 +121,7 @@ export function CallApi() {
           <SortableContext
             items={elements}
             strategy={verticalListSortingStrategy}
+            
           >
             {elements.map((user) => (
               <Element

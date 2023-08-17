@@ -22,7 +22,7 @@ export function Table() {
 
   return (
     <>
-      <div className={clsx("flex justify-start items-center absolute left-0 border-t-[1px] border-t-primary-4")}>
+      <div className={clsx("flex justify-start items-center sticky left-0 border-t-[1px] border-t-primary-4 top-0")}>
         <div className={clsx("flex flex-col")}>
           <div className={clsx("flex flex-row")}>
             {title.map((user) => (

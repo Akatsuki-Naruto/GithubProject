@@ -4,12 +4,12 @@ import { useState } from "react";
 import clsx from "clsx";
 import { Backlog } from "./Backlog/Backlog";
 import { Table } from "./Table/Tables";
-import { BacklogTest } from "./ApiBacklog/Backlog";
 import Search from "./search";
 import Dropdown from "./dropdown";
-import MyModal from "./dialog(Model)";
-import Switches from "./switch(Toggle)";
 import { DropDown } from "../assets/svg";
+import { MenuItem } from "./Menu/MenuItem";
+import { Priority } from "./Priority/Priority";
+import { Size } from "./Size/Size";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -32,30 +32,30 @@ export function Menu() {
         id: 2,
       },
     ],
-    BoardTest: [
-      {
-        id: 1,
-        content: <BacklogTest />,
-      },
-    ],
     Drop_Down: [
       {
         id: 1,
         content: <Dropdown />,
       },
     ],
-    Dialog: [
+    // Menu: [
+    //   {
+    //     id:1,
+    //     content:<MenuItem/>
+    //   }
+    // ]
+    Priority:[
       {
-        id: 1,
-        content: <MyModal />,
+        id:1,
+        content:<Priority/>
       },
     ],
-    Switch: [
+    Size:[
       {
-        id: 1,
-        content: <Switches />,
-      },
-    ],
+        id:1,
+        content:<Size/>
+      }
+    ]
   });
 
   return (

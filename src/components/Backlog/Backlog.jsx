@@ -10,13 +10,14 @@ import clsx from "clsx";
 
 export function Backlog() {
   const [status, setStatus] = useState([
-    { id: 1, name: "🆕 New" },
-    { id: 2, name: "📋 Backlog" },
-    { id: 3, name: "🔖 Ready" },
-    { id: 4, name: "🏗 In Progress" },
-    { id: 5, name: "👀 In review" },
-    { id: 6, name: "✅ Done" },
-  ]);
+    { id: 1, name: "🆕 New" , infor:'New'},
+    { id: 2, name: "📋 Backlog",infor:'Backlog' },
+    { id: 3, name: "🔖 Ready" ,infor:'Ready'},
+    { id: 4, name: "🏗 In Progress" , infor:'In Progress'},
+    { id: 5, name: "👀 In review",infor:'In review'},
+    { id: 6, name: "✅ Done" ,infor:'Done'},
+    { id: 7, name: "No Status" ,infor:''}
+  ])
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
